@@ -67,7 +67,7 @@ app.get('/weather', (req,res) => {
        if(error){
            return res.send({error})
        }
-       weatherApi.WeatherApi(lat,lon,(error,{temp,feelslike})=>{
+       weatherApi.WeatherApi(lat,lon,(error,{temp,feelslike,visibility,wind_dir,wind_speed})=>{
            if(error){
                return res.send(
                    {error}
@@ -78,6 +78,9 @@ app.get('/weather', (req,res) => {
                    loc,
                    temp,
                    feelslike,
+                   visibility,
+                   wind_dir,
+                   wind_speed,
                }
            )
        })

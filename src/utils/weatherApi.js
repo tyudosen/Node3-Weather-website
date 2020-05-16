@@ -16,7 +16,11 @@ const WeatherApi = (lat,lon, callback) => {
                 undefined,
                 {
                     temp: body.current.temperature,
-                    feelslike: body.current.feelslike
+                    feelslike: body.current.feelslike,
+                    visibility: body.current.visibility,
+                    wind_dir: body.current.wind_dir,
+                    wind_speed: body.current.wind_speed,
+
                 },
             )
         }
