@@ -17,7 +17,7 @@ weatherForm.addEventListener('submit', (e)=>{
     e.preventDefault()
     const location = searhElement.value
     messageOne.textContent = 'Loading...'
-    fetch('/weather?search=' + location)
+    fetch('/weather?address=' + location)
     .then((res)=>{
     res.json().then((data)=>{
         if(data.error){

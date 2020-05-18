@@ -10,7 +10,7 @@ const viewsDir = path.join(__dirname, '../templates/views')
 const partialsDir = path.join(__dirname, '../templates/partials')
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3007
 
 //Setup handlebars engine and views location
 app.set('view engine', 'hbs')
@@ -54,14 +54,14 @@ app.get('/help', (req,res) => {
 
 
 app.get('/weather', (req,res) => {
-    if(!req.query.search){
+    if(!req.query.address){
         return res.send(
             {
                 error: 'Location must be provided'
             }
         )
     }
-    const location = req.query.search
+    const location = req.query.address
 
     geoCode.GeoCode(location, (error,{loc,lat,lon}={})=>{
        if(error){
